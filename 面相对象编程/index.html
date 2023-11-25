@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>面相对象编程 | CreMiracle的小破站</title><meta name="author" content="CreMiracle"><meta name="copyright" content="CreMiracle"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="3.面相对象编程1.类与对象kotlin中创建一个类的方式与C&#x2F;C++相同,使用’class’关键词,即: 12345class name&amp;#123; 结构体 &amp;#125;fun main()&amp;#123;    val p &#x3D; name()  &#x2F;&#x2F;实例化一个类&amp;#125; 使用方法也同C&#x2F;C++ 2.继承与构造函数kotlin的类的机制虽然与C&#x2F;C++一样,但在继承方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面相对象编程">
+<meta property="og:url" content="https://cremiracle.github.io/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:site_name" content="CreMiracle的小破站">
+<meta property="og:description" content="3.面相对象编程1.类与对象kotlin中创建一个类的方式与C&#x2F;C++相同,使用’class’关键词,即: 12345class name&amp;#123; 结构体 &amp;#125;fun main()&amp;#123;    val p &#x3D; name()  &#x2F;&#x2F;实例化一个类&amp;#125; 使用方法也同C&#x2F;C++ 2.继承与构造函数kotlin的类的机制虽然与C&#x2F;C++一样,但在继承方">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cremiracle.github.io/img/1.png">
+<meta property="article:published_time" content="2023-11-25T09:07:00.000Z">
+<meta property="article:modified_time" content="2023-11-25T09:07:48.697Z">
+<meta property="article:author" content="CreMiracle">
+<meta property="article:tag" content="博客,Cre,Miracle,日常,分享,资源,教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cremiracle.github.io/img/1.png"><link rel="shortcut icon" href="/img/1.png"><link rel="canonical" href="https://cremiracle.github.io/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面相对象编程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-25 17:07:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/1.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="CreMiracle的小破站"><span class="site-name">CreMiracle的小破站</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">面相对象编程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-25T09:07:00.000Z" title="发表于 2023-11-25 17:07:00">2023-11-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-25T09:07:48.697Z" title="更新于 2023-11-25 17:07:48">2023-11-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Kotlin/">Kotlin</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="面相对象编程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="3-面相对象编程"><a href="#3-面相对象编程" class="headerlink" title="3.面相对象编程"></a>3.面相对象编程</h2><h3 id="1-类与对象"><a href="#1-类与对象" class="headerlink" title="1.类与对象"></a>1.类与对象</h3><p><strong>kotlin中创建一个类的方式与C&#x2F;C++相同,使用’class’关键词,即:</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">name</span>&#123; 结构体 &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> p = name()  <span class="comment">//实例化一个类</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>使用方法也同C&#x2F;C++</strong></p>
+<h3 id="2-继承与构造函数"><a href="#2-继承与构造函数" class="headerlink" title="2.继承与构造函数"></a>2.继承与构造函数</h3><p><strong>kotlin的类的机制虽然与C&#x2F;C++一样,但在继承方式上却不相同.在kotlin中,<mark>类默认无法没继承</mark>,需要在class关键词前加上’open’关键词.此外,要继承一个类也直接使用’:’关键词,例如:</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="keyword">class</span> <span class="title class_">people</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">student</span>:<span class="type">people</span>()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>kotlin中的构造函数分为主构造函数和次构造函数.主构造函数跟在类头后面,表示一个类需要接受的参数,并且在实例化时必须传入数量相等的参数,如果不写则创建了一个无参的主构造函数.</strong><br><strong>由于主构造函数里面只能编写参数,不能编写函数体,于是可以使用’init’关键词在类中对主构造函数定义函数体</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">people</span>(name:String,age:<span class="built_in">Int</span>)&#123;</span><br><span class="line">    <span class="keyword">init</span>&#123;</span><br><span class="line">        println(<span class="string">&quot;name is&quot;</span> + name)</span><br><span class="line">        printf(<span class="string">&quot;age is&quot;</span> + age)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>此时再实例化people类就会直接打印出init中的两条语句</strong><br><strong>但是有时候一个类有许多参数,然而我们却只能向这个类中传入少于参数数量的值,这个时候就需要在类中定义一个次构造函数.次构造函数使用’constructor’关键词定义.<mark>注意:kotlin规定,次构造函数必须调用主构造函数</mark>.</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(<span class="keyword">val</span> sno:String,<span class="keyword">val</span> grade:<span class="built_in">Int</span>,name:String,age:<span class="built_in">Int</span>):people(name,age)&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name:String,age:<span class="built_in">Int</span>):<span class="keyword">this</span>(<span class="string">&quot;&quot;</span>,<span class="number">0</span>,name,age)&#123;&#125;</span><br><span class="line">    constrcutor():<span class="keyword">this</span>(<span class="string">&quot;&quot;</span>,<span class="number">0</span>)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>在上例中,student类继承了people类</strong><br><strong><mark>注意:在kotlin中,类要继承一个类,必须要调用被继承类的主构造函数,如同上例中people(name,age)</mark></strong><br><strong>类中又定义了两个次构造函数,并且使用this关键词调用的主构造函数,此时,我们便可以如下进行实例化:</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> Student1 = Student()</span><br><span class="line"><span class="keyword">val</span> Student1 = Student(<span class="string">&quot;jack&quot;</span>,<span class="number">19</span>)</span><br><span class="line"><span class="keyword">val</span> Student1 = Student(<span class="string">&quot;a123&quot;</span>,<span class="number">5</span>,<span class="string">&quot;jack&quot;</span>,<span class="number">19</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-接口"><a href="#3-接口" class="headerlink" title="3.接口"></a>3.接口</h3><p><strong>接口是用于实现多台编程的重要组成部分,我们可以在接口中定义一系列抽象行为,然后由具体的类去实现.接口中的函数不要求有结构体</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义接口</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Study</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">readBooks</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doHomework</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现接口,也使用&#x27;:&#x27;关键词</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>(name:String,age:<span class="built_in">Int</span>):people(name,age),Study&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">readBooks</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(name +<span class="string">&quot;is reading&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="keyword">do</span> <span class="title">Homework</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(name + <span class="string">&quot;is doing homework&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用接口</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> student = Student(<span class="string">&quot;Jack&quot;</span>,<span class="number">19</span>)</span><br><span class="line">    doStudy(Student)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">doStudy</span><span class="params">(study:<span class="type">Study</span>)</span></span>&#123;</span><br><span class="line">        study.readBooks()</span><br><span class="line">        study.doHomework()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>该例子中,首先创建了一个Study接口,并定义了两个函数.然后创建了Student类继承了前面的people类和实现了接口,由于在Study接口中定义了readBooks()和doHomework()两个未实现的函数,因此在Student类中使用override关键词进行重写.最后在main函数中创建了Student类的实例.</strong><br><strong>本来是可以直接调用该实例的readBooks()和doHomework()两个函数,但该例子中将它传到了doStudy()函数中.doStudy()函数接受了一个Study类型的参数,由于Student类中实现了Study接口,因此Student类的实例可以传递给doStudy()函数,接下来我们调用了Study接口的两个函数,<mark>这种就叫做面相接口编程,也被称作多态</mark></strong><br><strong>不过kotlin中还增加了一个功能:允许对接口中的函数进行默认实现.</strong><br><strong>例如我们修改上面Study接口中的代码:</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Study</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">readBooks</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">doHomework</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(<span class="string">&quot;do homework default implementation&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>如果接口中的函数拥有了函数体,这个函数体中的内容就是它的默认实现.现在当一个类去实现Study接口时,只会强制要求实现readBooks()函数,而doHomework()函数则可以自由选择实现或者不实现,不实现就会使用默认实现内容</strong></p>
+<h3 id="4-可见性修饰符"><a href="#4-可见性修饰符" class="headerlink" title="4.可见性修饰符"></a>4.可见性修饰符</h3><p><strong>kotlin有四种修饰符,分别是:public,protected,private和internal.其中前三个的作用与C&#x2F;C++中的修饰符作用一致,而internal是新的可见性概念,表示只对同一模块中的类可见.</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://cremiracle.github.io">CreMiracle</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://cremiracle.github.io/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">https://cremiracle.github.io/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://cremiracle.github.io" target="_blank">CreMiracle的小破站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91/" title="程序的控制逻辑"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">程序的控制逻辑</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">CreMiracle</div><div class="author-info__description">日复一日，必有精进</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">3.面相对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.</span> <span class="toc-text">1.类与对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text">2.继承与构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.3.</span> <span class="toc-text">3.接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8F%AF%E8%A7%81%E6%80%A7%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.4.</span> <span class="toc-text">4.可见性修饰符</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E9%9D%A2%E7%9B%B8%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" title="面相对象编程">面相对象编程</a><time datetime="2023-11-25T09:07:00.000Z" title="发表于 2023-11-25 17:07:00">2023-11-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8E%A7%E5%88%B6%E9%80%BB%E8%BE%91/" title="程序的控制逻辑">程序的控制逻辑</a><time datetime="2023-11-24T08:30:00.000Z" title="发表于 2023-11-24 16:30:00">2023-11-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E5%8F%98%E9%87%8F%E4%B8%8E%E5%87%BD%E6%95%B0/" title="变量与函数">变量与函数</a><time datetime="2023-11-24T08:00:00.000Z" title="发表于 2023-11-24 16:00:00">2023-11-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/" title="更新日志">更新日志</a><time datetime="2023-09-07T08:23:14.360Z" title="发表于 2023-09-07 16:23:14">2023-09-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C/" title="C++数组的删除操作">C++数组的删除操作</a><time datetime="2023-07-28T06:35:00.000Z" title="发表于 2023-07-28 14:35:00">2023-07-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By CreMiracle</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
